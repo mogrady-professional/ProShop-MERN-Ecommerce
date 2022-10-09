@@ -107,3 +107,4 @@ dist
 #
 .env 
 *.md
+secrets.md

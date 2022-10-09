@@ -1,5 +1,7 @@
 # ProShop-MERN-Ecommerce
 
+> Full stack MERN ecommerce website with PayPal and Stripe payment integration
+
 # Table of Contents
 
 - [ProShop-MERN-Ecommerce](#proshop-mern-ecommerce)
@@ -21,6 +23,8 @@
 - [Concurrently] (https://www.npmjs.com/package/concurrently)
 - [Nodemon] (https://www.npmjs.com/package/nodemon)
 - [dotenv] (https://www.npmjs.com/package/dotenv)
+- [Mongoose] (https://mongoosejs.com/)
+- [colors] (https://www.npmjs.com/package/colors)
 
 ## Packages
 
@@ -36,12 +40,15 @@
 - `npm i axios` http libary for making http requests to backend, it's easier and more powerful(could also use fetch)
 - `npm i -D nodemon concurrently` run both backend and frontend at the same time - install as dev dependency
 - `npm i dotenv` to use environment variables
+- `npm i mongoose` object modeling for mongodb
+- `npm i colors` to colorize console output
 
 # Instructions
 
 - `npm run client` to run frontend
 - `npm run server` to run backend
 - `npm run dev` to run both frontend and backend using concurrently
+-
 
 # Converting commonjs to esm
 
