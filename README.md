@@ -11,6 +11,7 @@
   - [Backend](#backend)
 - [Instructions](#instructions)
 - [Converting commonjs to esm](#converting-commonjs-to-esm)
+  - [Seeder](#seeder)
 
 ---
 
@@ -25,6 +26,7 @@
 - [dotenv] (https://www.npmjs.com/package/dotenv)
 - [Mongoose] (https://mongoosejs.com/)
 - [colors] (https://www.npmjs.com/package/colors)
+- [bcryptjs] (https://www.npmjs.com/package/bcryptjs)
 
 ## Packages
 
@@ -42,6 +44,7 @@
 - `npm i dotenv` to use environment variables
 - `npm i mongoose` object modeling for mongodb
 - `npm i colors` to colorize console output
+- `npm i bcryptjs` for password hashing
 
 # Instructions
 
@@ -60,3 +63,7 @@
 ```
 
 - [Node.js v18.10.0 documentation](https://nodejs.org/api/packages.html#type)
+
+## Seeder
+
+Script to load database with Mongoose
