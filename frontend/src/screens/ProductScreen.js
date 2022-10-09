@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   Row,
@@ -10,11 +10,22 @@ import {
   ListGroupItem,
 } from 'react-bootstrap';
 import Rating from '../components/Rating';
-import products from '../products';
+import axios from 'axios';
+// import products from '../products';
 
 const ProductScreen = () => {
   const { id } = useParams(); // useParams() is a hook that allows us to access the URL parameters
-  const product = products.find((p) => p._id === id); // find() is a method that returns the value of the first element in an array that pass a test (provided as a function)
+  //   const product = products.find((p) => p._id === id); // find() is a method that returns the value of the first element in an array that pass a test (provided as a function)
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${id}`);
+      setProduct(data);
+      console.log(data);
+    };
+    fetchProduct();
+  }, [id]);
 
   return (
     <>
