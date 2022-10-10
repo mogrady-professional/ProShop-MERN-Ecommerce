@@ -2,8 +2,8 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Container } from 'react-bootstrap';
-import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
+import HomeScreen from './pages/Home';
+import ProductScreen from './pages/Product';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {

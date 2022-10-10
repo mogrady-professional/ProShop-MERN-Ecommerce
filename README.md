@@ -12,6 +12,8 @@
 - [Instructions](#instructions)
 - [Converting commonjs to esm](#converting-commonjs-to-esm)
   - [Seeder](#seeder)
+  - [Middleware](#middleware)
+  - [Redux Toolkit](#redux-toolkit)
 
 ---
 
@@ -27,6 +29,7 @@
 - [Mongoose] (https://mongoosejs.com/)
 - [colors] (https://www.npmjs.com/package/colors)
 - [bcryptjs] (https://www.npmjs.com/package/bcryptjs)
+- [express-async-handler] (https://www.npmjs.com/package/express-async-handler)
 
 ## Packages
 
@@ -35,6 +38,7 @@
 - `npm i react-bootstrap bootstrap`
 - `npm i react-router-dom`
 - `npm i react-router-bootstrap`
+- `npm install @reduxjs/toolkit react-redux` (Redux Toolkit)
 
 ## Backend
 
@@ -45,6 +49,7 @@
 - `npm i mongoose` object modeling for mongodb
 - `npm i colors` to colorize console output
 - `npm i bcryptjs` for password hashing
+- `npm i express-async-handler` to handle async errors in express routes
 
 # Instructions
 
@@ -67,3 +72,22 @@
 ## Seeder
 
 Script to load database with Mongoose
+
+## Middleware
+
+Server side code that runs before the route handler
+
+## Redux Toolkit
+
+Upgraded to Redux Tookit. Data is fetched through redux action and is passed down to the components through state.
+
+- Flow of how Redux works
+  - Creating a Constant
+  - Creating a Reducer
+  - Creating an Action
+
+> Redux Toolkit is a package that contains a set of tools to help you write Redux logic more easily. It is intended to be the standard way to write Redux logic.
+
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Quick Start](https://redux-toolkit.js.org/tutorials/quick-start)
+-
