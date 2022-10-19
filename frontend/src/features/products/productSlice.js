@@ -31,6 +31,28 @@ export const getProductById = createAsyncThunk(
   }
 );
 
+export const createReview = createAsyncThunk(
+  'products/createReview',
+  async (data, thunkAPI) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+        },
+      };
+      await axios.post(
+        `/api/products/${data.id}/reviews`,
+        data.details,
+        config
+      );
+    } catch (error) {
+      const message = setMessage(error);
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const productSlice = createSlice({
   name: 'products',
   initialState: {
@@ -38,8 +60,18 @@ export const productSlice = createSlice({
     product: {},
     error: '',
     loading: false,
+    //
+    createReviewLoading: false,
+    createReviewSuccess: false,
+    createReviewError: '',
   },
-  reducers: {},
+  reducers: {
+    resetCreateReview: (state) => {
+      state.createReviewLoading = false;
+      state.createReviewSuccess = false;
+      state.createReviewError = '';
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {
@@ -72,6 +104,22 @@ export const productSlice = createSlice({
         state.loading = false;
         state.product = {};
         state.error = payload;
+      })
+      //
+      .addCase(createReview.pending, (state) => {
+        state.createReviewLoading = true;
+        state.createReviewSuccess = false;
+        state.createReviewError = '';
+      })
+      .addCase(createReview.fulfilled, (state) => {
+        state.createReviewLoading = false;
+        state.createReviewSuccess = true;
+        state.createReviewError = '';
+      })
+      .addCase(createReview.rejected, (state, { payload }) => {
+        state.createReviewLoading = false;
+        state.createReviewSuccess = false;
+        state.createReviewError = payload;
       });
   },
 });

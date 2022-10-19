@@ -20,8 +20,8 @@
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [Bootswatch](https://bootswatch.com/)
 - [font-awesome - v6.2](https://fontawesome.com/)
-- [react-router-dom v6.4](https://reactrouter.com/web/guides/quick-start)
--
+- [@reduxjs/toolkit](https://redux-toolkit.js.org/)
+- [react-redux](https://react-redux.js.org/)
 - [Express] (https://expressjs.com/)
 - [Concurrently] (https://www.npmjs.com/package/concurrently)
 - [Nodemon] (https://www.npmjs.com/package/nodemon)
@@ -39,6 +39,7 @@
 - `npm i react-router-dom`
 - `npm i react-router-bootstrap`
 - `npm install @reduxjs/toolkit react-redux` (Redux Toolkit)
+- `npm i react-icons` (font-awesome)
 
 ## Backend
 
@@ -50,6 +51,7 @@
 - `npm i colors` to colorize console output
 - `npm i bcryptjs` for password hashing
 - `npm i express-async-handler` to handle async errors in express routes
+- `npm i jsonwebtoken` for authentication
 
 # Instructions
 
