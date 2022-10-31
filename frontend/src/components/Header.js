@@ -1,47 +1,78 @@
-import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FaShoppingCart, FaUser, FaLock } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '../features/users/userSlice';
+import { resetOrderState } from '../features/orders/orderSlice';
 
-const Header = () => {
+function Header() {
+  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(logoutUser());
+    dispatch(resetOrderState());
+  };
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <LinkContainer to="/">
-            <Navbar.Brand>ProShop</Navbar.Brand>
-          </LinkContainer>
+          <Navbar.Brand as={Link} to="/">
+            Proshop
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <LinkContainer to="/cart">
-                <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> Cart
+              <Nav.Item>
+                <Nav.Link as={Link} to="/cart" className="d-flex">
+                  <FaShoppingCart className="align-self-center me-2" />
+                  Cart
                 </Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/login">
-                <Nav.Link>
-                  <i className="fas fa-user"></i> Sign In
-                </Nav.Link>
-              </LinkContainer>
-              {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown> */}
+              </Nav.Item>
+              {user?.isAdmin && (
+                <>
+                  <FaLock className="align-self-center me-2" />
+                  <NavDropdown title="admin" id="adminmenu">
+                    <NavDropdown.Item as={Link} to="/admin/userList">
+                      User List
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/admin/productList">
+                      Product List
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/admin/orderList">
+                      Order List
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </>
+              )}
+              {user ? (
+                <>
+                  <FaUser className="align-self-center me-2" />
+                  <NavDropdown title={user.name} id="username">
+                    <NavDropdown.Item as={Link} to="/profile">
+                      Profile
+                    </NavDropdown.Item>
+                    <NavDropdown.Item onClick={signoutHandler}>
+                      Sign Out
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </>
+              ) : (
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/login" className="d-flex">
+                    <FaUser className="align-self-center me-2" />
+                    Sign In
+                  </Nav.Link>
+                </Nav.Item>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </header>
   );
-};
-
+}
 export default Header;

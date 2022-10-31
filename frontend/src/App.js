@@ -6,6 +6,7 @@ import HomeScreen from './pages/Home';
 import ProductScreen from './pages/Product';
 import CartScreen from './pages/Cart';
 import { Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/cart" element={<CartScreen />}>
               <Route path=":id" element={<CartScreen />} />
             </Route>
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Container>
       </main>
