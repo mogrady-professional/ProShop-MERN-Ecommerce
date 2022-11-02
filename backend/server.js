@@ -4,6 +4,7 @@ import connectDB from './config/db.js';
 import colors from 'colors';
 import productRoutes from './routes/product.routes.js';
 import userRoutes from './routes/user.routes.js';
+import orderRoutes from './routes/order.routes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 dotenv.config(); // this is a function that will read the .env file and add the variables to process.env
@@ -19,14 +20,15 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
-// Product Routes
+// Routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 
 // Error Handler
-// app.use(notFound);
+app.use(notFound);
 // Error Handler
-// app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(

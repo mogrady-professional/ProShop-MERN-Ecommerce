@@ -14,6 +14,7 @@
   - [Seeder](#seeder)
   - [Middleware](#middleware)
   - [Redux Toolkit](#redux-toolkit)
+- [Admin](#admin)
 
 ---
 
@@ -93,3 +94,8 @@ Upgraded to Redux Tookit. Data is fetched through redux action and is passed dow
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [Quick Start](https://redux-toolkit.js.org/tutorials/quick-start)
 -
+
+# Admin
+
+- username: `admin@example.com`
+- password: `123456`

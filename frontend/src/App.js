@@ -7,6 +7,11 @@ import ProductScreen from './pages/Product';
 import CartScreen from './pages/Cart';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
+import Register from './pages/Register';
+import Profile from './pages/Profile';
+import Shipping from './pages/Shipping';
+import Payment from './pages/Payment';
+import PlaceOrder from './pages/placeOrder';
 
 const App = () => {
   return (
@@ -21,6 +26,12 @@ const App = () => {
               <Route path=":id" element={<CartScreen />} />
             </Route>
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/placeOrder" element={<PlaceOrder />} />
+            <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </Container>
       </main>

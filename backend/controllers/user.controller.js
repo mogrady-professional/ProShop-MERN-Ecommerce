@@ -80,4 +80,33 @@ const getUserProfile = asyncHandler(async (req, res) => {
   res.send('Success');
 });
 
-export { authUser, getUserProfile, registerUser };
+// @desc Update user profile
+// @route PUT /api/users/profile
+// @access Private
+const updateUserProfile = asyncHandler(async (req, res) => {
+  const user = req.user;
+  user.name = req.body.name || user.name;
+  user.email = req.body.email || user.email;
+  if (req.body.password) {
+    user.password = req.body.password;
+  }
+
+  try {
+    const updatedUser = await user.save();
+    if (updatedUser) {
+      res.send({
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+        token: generateToken(updatedUser._id),
+      });
+    }
+  } catch (error) {
+    if (error.code === 11000) {
+      throw new Error('Email already exists');
+    }
+  }
+});
+
+export { authUser, getUserProfile, registerUser, updateUserProfile };
