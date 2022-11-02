@@ -3,16 +3,20 @@ const router = express.Router();
 import {
   getProducts,
   getProductById,
+  deleteProduct,
+  createProduct,
+  updateProduct,
+  createProductReview,
 } from '../controllers/product.controller.js';
+import { protect, isAdmin } from '../middleware/authMiddleware.js';
 
-// @desc    Fetch all products
-// @route   GET /api/products
-// @access  Public
-router.route('/').get(getProducts);
+router.route('/').get(getProducts).post(protect, isAdmin, createProduct);
 
-// @desc    Fetch single product
-// @route   GET /api/products/:id
-// @access  Public
-router.route('/:id').get(getProductById);
+router
+  .route('/:id')
+  .get(getProductById)
+  .delete(protect, isAdmin, deleteProduct)
+  .put(protect, isAdmin, updateProduct);
+router.post('/:id/reviews', protect, createProductReview);
 
 export default router;

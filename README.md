@@ -2,6 +2,8 @@
 
 > Full stack MERN ecommerce website with PayPal and Stripe payment integration
 
+- Stopped at point before adding PayPal Payment processing
+
 # Table of Contents
 
 - [ProShop-MERN-Ecommerce](#proshop-mern-ecommerce)

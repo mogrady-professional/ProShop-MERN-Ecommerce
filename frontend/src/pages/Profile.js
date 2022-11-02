@@ -97,7 +97,11 @@ function Profile() {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </Form.Group>
-          <Button type="submit" variant="primary">
+          <Button
+            type="submit"
+            variant="primary"
+            className="btn-block w-100 mt-3"
+          >
             Update
           </Button>
         </Form>

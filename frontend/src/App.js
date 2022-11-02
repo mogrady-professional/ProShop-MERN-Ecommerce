@@ -12,6 +12,15 @@ import Profile from './pages/Profile';
 import Shipping from './pages/Shipping';
 import Payment from './pages/Payment';
 import PlaceOrder from './pages/placeOrder';
+import Order from './pages/Order';
+import UserList from './pages/UserList';
+import EditUser from './pages/EditUser';
+import ProductList from './pages/ProductList';
+import NewProduct from './pages/NewProduct';
+import EditProduct from './pages/EditProduct';
+import OrderList from './pages/OrderList';
+import OrderViewAdmin from './pages/OrderViewAdmin';
+import PageNotFound from './pages/PageNotFound';
 
 const App = () => {
   return (
@@ -31,7 +40,15 @@ const App = () => {
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/placeOrder" element={<PlaceOrder />} />
-            <Route path="*" element={<h1>Not Found</h1>} />
+            <Route path="/order/:id" element={<Order />} />
+            <Route path="/admin/userList" element={<UserList />} />
+            <Route path="/admin/user/:id/edit" element={<EditUser />} />
+            <Route path="/admin/productList" element={<ProductList />} />
+            <Route path="/admin/product/new" element={<NewProduct />} />
+            <Route path="/admin/product/:id/edit" element={<EditProduct />} />
+            <Route path="/admin/orderList" element={<OrderList />} />
+            <Route path="/admin/order/:orderId" element={<OrderViewAdmin />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Container>
       </main>
