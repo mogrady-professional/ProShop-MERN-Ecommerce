@@ -24,6 +24,7 @@ function PlaceOrder() {
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
+
   const itemsPrice = +cartItems
     .reduce((sum, item) => item.price * item.qty + sum, 0)
     .toFixed(2);

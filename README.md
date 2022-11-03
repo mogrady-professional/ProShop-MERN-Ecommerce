@@ -4,6 +4,18 @@
 
 - Stopped at point before adding PayPal Payment processing
 
+<p align="center">
+<img src="images/home.png"  height="auto" width="100%"> 
+<img src="images/search.png"  height="auto" width="100%"> 
+<img src="images/users.png"  height="auto" width="100%"> 
+<img src="images/products.png"  height="auto" width="100%"> 
+<img src="images/orders.png"  height="auto" width="100%"> 
+<img src="images/order.png"  height="auto" width="100%"> 
+<img src="images/shipping.png"  height="auto" width="100%"> 
+<img src="images/cart.png"  height="auto" width="100%"> 
+<img src="images/profile.png"  height="auto" width="100%"> 
+</p>
+
 # Table of Contents
 
 - [ProShop-MERN-Ecommerce](#proshop-mern-ecommerce)
@@ -17,6 +29,7 @@
   - [Middleware](#middleware)
   - [Redux Toolkit](#redux-toolkit)
 - [Admin](#admin)
+- [Instructions](#instructions-1)
 
 ---
 
@@ -101,3 +114,16 @@ Upgraded to Redux Tookit. Data is fetched through redux action and is passed dow
 
 - username: `admin@example.com`
 - password: `123456`
+
+# Instructions
+
+- Create a .env file in the root directory and add the following
+  - NODE_ENV = development
+  - PORT = 5000
+  - MONGO_URI = your mongodb uri
+  - JWT_SECRET = 'somethingsecret'
+  - PAYPAL_CLIENT_ID = your paypal client id
+- run `npm i` to install dependencies
+- run `npm run data:import` to import data to mongodb
+- run `npm run dev` to run the app in development mode
+- run `npm run data:destroy` to destroy data in mongodb
